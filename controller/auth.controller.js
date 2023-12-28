@@ -75,3 +75,21 @@ exports.register = async (req, res) => {
         res.status(500).send(err)
     }
 };
+
+exports.user = async (req, res) =>  {
+    try {
+        const userExists = await user.findById(req.userId);
+
+        if (!userExists) {
+            return res.status(400).json({
+                message: 'User doesnot exists. Invalid token'
+            })
+        }
+
+        res.status(200).json({
+            data: userExists
+        });
+    } catch (err) {
+        res.status(500).send(err)
+    }
+}
