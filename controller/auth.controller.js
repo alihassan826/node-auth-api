@@ -27,7 +27,7 @@ exports.login = async (req, res) => {
             id: userExists.id
         };
 
-        jwt.sign(payload, 'myapi', (err, token) => {
+        jwt.sign(payload, process.env.jwtSecret, (err, token) => {
             if (err) {
                 return res.status(400).json({
                     message: 'Server error'
