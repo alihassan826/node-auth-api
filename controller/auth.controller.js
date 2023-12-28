@@ -40,7 +40,7 @@ exports.login = async (req, res) => {
             });
         });
     } catch (err) {
-        res.status(500).send(err);
+        res.status(500).send(JSON.stringify(err));
     }
 };
 
@@ -70,7 +70,7 @@ exports.register = async (req, res) => {
             message: 'Account Created Succusfully'
         });
     } catch (err) {
-        res.status(500).send(err)
+        res.status(500).send(JSON.stringify(err))
     }
 };
 
@@ -88,6 +88,6 @@ exports.user = async (req, res) =>  {
             data: userExists
         });
     } catch (err) {
-        res.status(500).send(err)
+        res.status(500).send(JSON.stringify(err))
     }
 }
