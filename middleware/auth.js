@@ -1,7 +1,7 @@
 const jwt = require('jsonwebtoken');
 
 module.exports = async function(req, res, next) {
-    const token = req.header['x-auth-token'];
+    const token = req.header('x-auth-token');
 
     if (!token) {
         return res.status(400).json({ message: 'Token is not valid. Invalid api call'  })

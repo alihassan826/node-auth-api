@@ -7,5 +7,5 @@ module.exports = function (app) {
 
     app.route('/register').post(auth.register);
 
-    app.route('/user').all(authMiddleware).post(auth.user);
+    app.route('/user').all(authMiddleware).get(auth.user);
 };
